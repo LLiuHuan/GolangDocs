@@ -15,8 +15,8 @@ npm i docsify-cli -g
 
 创建并初始化项目：
 
-``` go
-fun main(){
+```go
+func main(){
     fmt.Println("12345")
 }
 ```
