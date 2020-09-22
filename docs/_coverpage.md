@@ -7,5 +7,5 @@
 
 <!-- > 以 Spring Security 为主题，开启学习之旅，从基本案例到实战案例 -->
 
-<!-- [Gitee](https://gitee.com/newbetome/spring-security-fromzero)
-[Get Started](README.md) -->
+[Github](https://github.com/LLiuHuan)
+[Get Started](README.md)
