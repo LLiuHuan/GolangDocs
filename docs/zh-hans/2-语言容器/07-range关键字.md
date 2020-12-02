@@ -26,7 +26,7 @@ Index: 3 Value: 40
 当迭代切片时，关键字 range 会返回两个值。第一个值是当前迭代到的索引位置，第二个值是该位置对应元素值的一份副本，如下图所示。
 
 <div align=center> 
-    <img src="../../img/2-语言容器/07-range关键字/使用 range 迭代切片会创建每个元素的副本.gif"/> 
+    <img src="img/2-语言容器/07-range关键字/使用 range 迭代切片会创建每个元素的副本.gif"/> 
     <p>图：使用 range 迭代切片会创建每个元素的副本</p>
 </div>
 

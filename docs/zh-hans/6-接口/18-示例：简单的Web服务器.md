@@ -148,6 +148,6 @@ http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 一旦完成这个改变，就可以通过浏览器访问 `http://localhost:8000` 。每次加载页面，将看到一个类似下图的动画。
 
 <div align=center> 
-    <img src="../../img/6-接口/18-示例：简单的Web服务器/浏览器中的动态利萨茹图形.png"/> 
+    <img src="img/6-接口/18-示例：简单的Web服务器/浏览器中的动态利萨茹图形.png"/> 
     <p>图：浏览器中的动态利萨茹图形</p>
 </div>

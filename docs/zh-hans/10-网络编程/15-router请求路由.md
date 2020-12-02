@@ -107,7 +107,7 @@ r.PanicHandler = func(w http.ResponseWriter, r *http.Request, c interface{}) {
 httprouter 和众多衍生 router 使用的数据结构被称为压缩字典树（Radix Tree）。大家可能没有接触过压缩字典树，但对字典树（Trie Tree）应该有所耳闻。下图是一个典型的字典树结构：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/字典树.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/字典树.gif"/> 
 </div>
 
 字典树常用来进行字符串检索，例如用给定的字符串序列建立字典树。对于目标字符串，只要从根节点开始深度优先搜索，即可判断出该字符串是否曾经出现过，时间复杂度为 O(n) ，n 可以认为是目标字符串的长度。
@@ -117,7 +117,7 @@ httprouter 和众多衍生 router 使用的数据结构被称为压缩字典树�
 普通的字典树有一个比较明显的缺点，就是每个字母都需要建立一个孩子节点，这样会导致字典树的层数比较深，压缩字典树相对好地平衡了字典树的优点和缺点。下图是典型的压缩字典树结构：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/压缩字典树.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/压缩字典树.gif"/> 
 </div>
 
 每个节点上不只存储一个字母了，这也是压缩字典树中“压缩”的主要含义。使用压缩字典树可以减少树的层数，同时因为每个节点上数据存储也比通常的字典树要多，所以程序的局部性较好（一个节点的 path 加载到 cache 即可进行多个字符的对比），从而对 CPU 缓存友好。
@@ -180,7 +180,7 @@ r.PUT("/user/installations/:installation_id/repositories/:reposit", Hello)
 这样 PUT 对应的根节点就会被创建出来。把这棵 PUT 的树画出来：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/put树.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/put树.gif"/> 
 </div>
 
 radix 的节点类型为 \*httprouter.node ，为了说明方便，我们留下了目前关心的几个字段：
@@ -210,7 +210,7 @@ indices：子节点索引，当子节点为非参数类型，即本节点的 wil
 当插入 GET /marketplace_listing/plans 时，类似前面 PUT 的过程，GET 树的结构如下图所示：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/get树.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/get树.gif"/> 
 </div>
 
 因为第一个路由没有参数，path 都被存储到根节点上了。所以只有一个节点。
@@ -218,7 +218,7 @@ indices：子节点索引，当子节点为非参数类型，即本节点的 wil
 然后插入 GET /marketplace_listing/plans/:id/accounts ，新的路径与之前的路径有共同的前缀，且可以直接在之前叶子节点后进行插入，那么结果也很简单，插入后的树结构如下图所示：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/插入后get树.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/插入后get树.gif"/> 
 </div>
 
 由于 :id 这个节点只有一个字符串的普通子节点，所以 indices 还依然不需要处理。
@@ -230,7 +230,7 @@ indices：子节点索引，当子节点为非参数类型，即本节点的 wil
 接下来我们插入 GET /search，这时会导致树的边分裂，如下图所示。
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/边分裂.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/边分裂.gif"/> 
 </div>
 
 原有路径和新的路径在初始的 / 位置发生分裂，这样需要把原有的 root 节点内容下移，再将新路由 search 同样作为子节点挂在 root 节点之下。这时候因为子节点出现多个，root 节点的 indices 提供子节点索引，这时候该字段就需要派上用场了。"ms" 代表子节点的首字母分别为 m(marketplace) 和 s(search)。
@@ -238,7 +238,7 @@ indices：子节点索引，当子节点为非参数类型，即本节点的 wil
 我们一鼓作气，把 GET /status 和 GET /support 也插入到树中。这时候会导致在 search 节点上再次发生分裂，最终结果见下图：
 
 <div align=center> 
-    <img src="../../img/10-网络编程/15-router请求路由/再分裂.gif"/> 
+    <img src="img/10-网络编程/15-router请求路由/再分裂.gif"/> 
 </div>
 
 ### 子节点冲突处理

@@ -4,7 +4,7 @@
 
 ### go run命令——编译并运行
 
-[[Python](https://www.naoketang.com/docs/python-tutorial) 或者 Lua 语言可以在不输出二进制的情况下，将代码使用虚拟机直接执行。Go语言虽然不使用虚拟机，但可使用 go run 指令达到同样的效果。
+Python 或者 Lua 语言可以在不输出二进制的情况下，将代码使用虚拟机直接执行。Go语言虽然不使用虚拟机，但可使用 go run 指令达到同样的效果。
 
 go run 命令会编译源码，并且直接执行源码的 main() 函数，不会在当前目录留下可执行文件。
 

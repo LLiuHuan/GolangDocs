@@ -169,7 +169,7 @@ customizedHandler = logger(timeout(ratelimit(helloHandler)))
 这个函数链在执行过程中的上下文可以用下图来表示。
 
 <div align=center> 
-    <img src="../../img/10-网络编程/16-middleware：Web中间件/函数链.gif"/> 
+    <img src="img/10-网络编程/16-middleware：Web中间件/函数链.gif"/> 
 </div>
 
 再直白一些，这个流程在进行请求处理的时候实际上就是不断地进行函数压栈再出栈，有一些类似于递归的执行流：

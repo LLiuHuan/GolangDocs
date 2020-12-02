@@ -9,7 +9,7 @@ Go 语言提倡使用通信的方法代替共享内存，当一个资源需要�
 这里通信的方法就是使用通道（channel），如下图所示。
 
 <div align=center> 
-    <img src="../../img/8-并发/08-通道（chan）/goroutine 与 channel 的通信.jpg"/> 
+    <img src="img/8-并发/08-通道（chan）/goroutine 与 channel 的通信.jpg"/> 
     <p>图：goroutine 与 channel 的通信</p>
 </div>
 

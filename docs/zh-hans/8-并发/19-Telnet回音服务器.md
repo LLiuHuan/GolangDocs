@@ -13,7 +13,7 @@ Telnet 协议是 TCP/IP 协议族中的一种。它允许用户（Telnet 客户�
 回音服务器能同时服务于多个连接。要接受连接就需要先创建侦听器，侦听器需要一个侦听地址和协议类型。就像你想卖东西，需要先确认卖什么东西，卖东西的类型就是协议类型，然后需要一个店面，店面位于街区的某个位置，这就是侦听器的地址。一个服务器可以开启多个侦听器，就像一个街区可以有多个店面。街区上的编号对应的就是地址中的端口号，如下图所示。
 
 <div align=center> 
-    <img src="../../img/8-并发/19-Telnet回音服务器/IP和端口号.jpg"/> 
+    <img src="img/8-并发/19-Telnet回音服务器/IP和端口号.jpg"/> 
     <p>图：IP和端口号</p>
 </div>
 
@@ -29,7 +29,7 @@ Telnet 协议是 TCP/IP 协议族中的一种。它允许用户（Telnet 客户�
 如下图清晰地展现了这一过程。
 
 <div align=center> 
-    <img src="../../img/8-并发/19-Telnet回音服务器/Socket 处理过程.jpg"/> 
+    <img src="img/8-并发/19-Telnet回音服务器/Socket 处理过程.jpg"/> 
     <p>图：Socket 处理过程</p>
 </div>
 
@@ -93,7 +93,7 @@ func server(address string, exitChan chan int) {
 如下图所示为 Telnet 数据处理过程。
 
 <div align=center> 
-    <img src="../../img/8-并发/19-Telnet回音服务器/Telnet 数据处理过程.jpg"/> 
+    <img src="img/8-并发/19-Telnet回音服务器/Telnet 数据处理过程.jpg"/> 
     <p>图：Telnet 数据处理过程</p>
 </div>
 

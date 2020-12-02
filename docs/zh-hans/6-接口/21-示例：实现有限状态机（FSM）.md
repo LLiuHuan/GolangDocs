@@ -256,7 +256,7 @@ func (sm *StateManager) Transit(name string) error {
 这 3 个状态间的关系可以通过下图来描述。
 
 <div align=center> 
-    <img src="../../img/6-接口/21-示例：实现有限状态机（FSM）/3 个状态间的转移关系.gif"/> 
+    <img src="img/6-接口/21-示例：实现有限状态机（FSM）/3 个状态间的转移关系.gif"/> 
     <p>图：3 个状态间的转移关系</p>
 </div>
 

@@ -89,7 +89,7 @@ $ go tool pprof --pdf cpu cpu.pprof > cpu.pdf
 最终生成 cpu.pdf 文件，使用 PDF 查看器打开文件，观察后发现下图所示的某个地方可能存在瓶颈。
 
 <div align=center> 
-    <img src="../../img/13-编译与工具/09-pprof命令/函数路径耗时.jpg"/> 
+    <img src="img/13-编译与工具/09-pprof命令/函数路径耗时.jpg"/> 
 </div>
 
 图中的每一个框为一个函数调用的路径，第 3 个方框中 joinSlice 函数耗费了 50% 的 CPU 时间，存在性能瓶颈。重新优化代码，在已知切片元素数量的情况下直接分配内存，代码如下：

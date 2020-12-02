@@ -64,6 +64,6 @@ fmt.Println(err) // "没有这样的文件或目录"
 
 err 的值图形化如下图所示。
 
-![file](../../img/6-接口/12-error接口/file.gif)
+![file](img/6-接口/12-error接口/file.gif)
 
 Errno 是一个系统调用错误的高效表示方式，它通过一个有限的集合进行描述，并且它满足标准的错误接口。
